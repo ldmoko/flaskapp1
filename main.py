@@ -7,7 +7,10 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 app.debug = True
-app.secret_key = 'fuckyou'
+app.secret_key = 'aaaaaaaaaaaaaaaaa'
+# app.config.update({
+#     'SECRET_KEY': 'AAAAAAAAAAAAAA',
+#     })
 
 @app.route('/')
 def hello_world():
@@ -21,9 +24,11 @@ def hello_world():
 #     return render_template('test.html', user=user)
 
 
-# @app.route('/ldm/<id>', methods=['PUT'])  # 默认是GET模式
-# def hello_user(id):
-#     return '<h1>hello:{id}</h1>'.format(id)
+@app.route('/user/<username>', methods=['GET','PUT'])  # 默认是GET模式
+def hello_user(username):
+    if username == 'fuck':
+        abort(404)
+    return '<h1>hello:{}</h1>'.format(username)
 
 
 # @app.route('/lidm/')  # 在后面加斜杠, 如果网址后面没有也可访问; 如果不在后面加斜杠, 网址后面加斜杠就访问不了 english
@@ -94,14 +99,15 @@ def test_rq():
 #     return render_template('book-list.html', book1=book1, books=books)
 
 
-# # @app.route('/help')
-# # def rq_help():
-# #     abort(404)
+# @app.route('/help')
+# def rq_help():
+#     abort(404)
 
 
+# 推荐
 # @app.errorhandler(404)
 # def not_found(e):
-#     return render_template('404.html')
+#     return render_template('404.html'), 404  # 此处404如果不写，虽然效果也能看到，但是状态码是200
 
 
 @app.route('/ip/<num_id>')
@@ -203,7 +209,7 @@ def login():
 
 if __name__ == '__main__':
     # 0.0.0.0表示外部也可访问, 否则只能通过localhost访问
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    print(app.config)#.get('SECRET_KEY'))
+    app.run(host='0.0.0.0', port=80, debug=True)
     # app.run(port=80)
 
-import requests
