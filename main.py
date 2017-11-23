@@ -107,7 +107,9 @@ def test_rq():
 # 推荐
 # @app.errorhandler(404)
 # def not_found(e):
-#     return render_template('404.html'), 404  # 此处404如果不写，虽然效果也能看到，但是状态码是200
+#     return render_template('404.html'), 404  
+# 此处404如果不写，虽然效果也能看到，但是状态码是200
+# 对于反爬虫，可以使用这招，返回200,但是界面是404
 
 
 @app.route('/ip/<num_id>')
