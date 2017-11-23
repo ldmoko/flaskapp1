@@ -1,0 +1,23 @@
+{% set test = 'ldm&tom# mike' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+你当前的IP地址为：
+{{ data['ip'] }}
+<br>
+你使用的环境是：
+{{ data['environ']['HTTP_USER_AGENT'] }}
+<br>
+url：
+{{ data['url'] }}
+{#{data['name']}#}
+<br>
+{{ test|urlencode }}
+<br>
+{{ test}}
+</body>
+</html>

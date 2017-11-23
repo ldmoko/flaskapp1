@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图书列表</title>
+</head>
+<body>
+    <h1>图书列表</h1>
+    <ul>
+        <li>标题：《{{book1.title}}》</li>
+        <li>定价：{{book1.price}}</li>
+        <li>作者：{{book1.author}}</li>
+        <li>出版社：{{book1.publisher}}</li>
+    </ul>
+    <table border="1">
+        <tr>
+            <td>书名</td>
+            <td>定价</td>
+            <td>作者</td>
+            <td>出版社</td>
+        </tr>
+    
+        {% for book in books %}
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publisher}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <table border="1">
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>      
+        
+    </table>
+</body>
+</html>
